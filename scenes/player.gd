@@ -10,11 +10,11 @@ extends CharacterBody3D
 @export var movement_action:GUIDEAction
 @export var flashlight_action:GUIDEAction
 @export var camera_rotation_action:GUIDEAction
+@export var run_action:GUIDEAction
 
 #@export var cam_s
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+var SPEED = 5.0
 
 const SENSITIVITY = 0.01
 
@@ -42,16 +42,16 @@ func _process(_delta: float) -> void:
 	if camera_rotation_action._value:
 		var camera_rotation_value:Dictionary = {"relative": camera_rotation_action._value}
 		camera_rotation(camera_rotation_value)
-
+	
+	if run_action.is_triggered():
+		SPEED = 5.0 * 2.0
+	else:
+		SPEED = 5.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

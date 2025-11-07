@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdjy7717huntg"]
+[gd_scene load_steps=9 format=3 uid="uid://cdjy7717huntg"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_8yadm"]
 [ext_resource type="Resource" uid="uid://b0ga4svgq6ujv" path="res://data/input/map_context/player_context/player_movement.tres" id="2_l46hk"]
 [ext_resource type="Resource" uid="uid://d0tby7o8nbho5" path="res://data/input/map_context/player_context/actions/movement.tres" id="3_r3uen"]
 [ext_resource type="Resource" uid="uid://w1gcbr4udcel" path="res://data/input/map_context/player_context/actions/flashlight.tres" id="4_bhu4v"]
 [ext_resource type="Resource" uid="uid://c1wxxmyglvoeu" path="res://data/input/map_context/player_context/actions/camera_rotation.tres" id="5_7o7u6"]
+[ext_resource type="Resource" uid="uid://cmtng4x1i83x7" path="res://data/input/map_context/player_context/actions/run.tres" id="6_i5d81"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mhkn4"]
 
@@ -16,6 +17,7 @@ player_map_context = ExtResource("2_l46hk")
 movement_action = ExtResource("3_r3uen")
 flashlight_action = ExtResource("4_bhu4v")
 camera_rotation_action = ExtResource("5_7o7u6")
+run_action = ExtResource("6_i5d81")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -35,5 +37,6 @@ unique_name_in_owner = true
 [node name="Flashlight" type="SpotLight3D" parent="Head/Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.661796, -0.6484)
-spot_range = 6.54794
-spot_angle = 36.9884
+light_energy = 1.8
+spot_range = 10.3979
+spot_angle = 30.6172
